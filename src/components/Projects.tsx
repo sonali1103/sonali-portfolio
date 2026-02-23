@@ -95,8 +95,19 @@ const Projects = () => {
                 </div>
 
                 <div className="p-8 lg:p-10">
-                  <h3 className="text-2xl font-serif font-bold mb-4 text-foreground">{activeProject.title}</h3>
-
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-serif font-bold mb-4 text-foreground">{activeProject.title}</h3>
+                    {activeProject.githubUrl && (
+                      <a
+                        href={activeProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-2 text-sm font-medium rounded-lg border border-gold text-gold hover:bg-gold/10 transition-all duration-300"
+                      >
+                        View Code
+                      </a>
+                    )}
+                  </div>
                   <ul className="space-y-3 mb-6">
                     {activeProject.description.map((point, i) => (
                       <li key={i} className="text-sm leading-relaxed flex gap-2 text-foreground">

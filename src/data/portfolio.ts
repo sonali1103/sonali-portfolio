@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Sonali Vedaraju",
-  title: "Full-stack Engineer",
-  location: "Pennsylvania",
+  title: "AI Application Engineer | Full-Stack Engineer",
+  location: "Pennsylvania / New York",
   phone: "+1 (682)-374-6951",
   email: "sonalivedaraj@gmail.com",
   linkedin: "https://www.linkedin.com/in/sonalivedaraju/",
@@ -9,7 +9,7 @@ export const personalInfo = {
 };
 
 export const professionalSummary = [
-  "Full-stack Engineer with nearly 6 years of experience in building scalable microservices & high-performance SPAs. Skilled in React/Next.js, Java/Spring Boot, AWS & Kubernetes, with a record of boosting performance, strengthening security & delivering reliable solutions.",
+  "AI-focused Full-Stack Engineer with nearly 6 years of experience building scalable microservices and high-performance SPAs. Proven expertise in designing and deploying LLM-powered agentic AI systems for reliable, enterprise-grade outputs. Strong React/Next.js foundation with a track record of performance optimization and bundle efficiency. Skilled in cloud-native development, AWS integrations, and streamlining workflows through automated CI/CD pipelines."
 ];
 
 export const experience = [
@@ -19,16 +19,27 @@ export const experience = [
     location: "USA",
     dates: "Jun 2024 - Present",
     points: [
-      "Optimized SPA performance with virtualization, lazy loading, and code splitting, cutting memory use by 60% and improving load times by 20%.",
-      "Enhanced build/runtime with Webpack (tree-shaking, dynamic imports) and Next.js/ESM, reducing cold-load by 3s and dev reloads by 25%.",
-      "Centralized configuration management using a custom React hook + Context API, improving maintainability and seamless state sharing across components.",
-      "Built CI/CD pipelines in GitLab for automated builds and Kubernetes deployments, containerizing feature branches for efficient testing and integrating Jira for release tracking.",
-      "Delivered cross-module features in a micro-frontend architecture, ensuring consistent UX and faster releases through collaboration with product/design/QA.",
-      "Improved code quality with 100% critical-path test coverage (Jest/RTL), reducing production bugs by 40%.",
-      "Strengthened frontend security by applying OWASP practices (XSS sanitization, CSRF tokens, secure PII handling), reducing vulnerabilities.",
-      "Delivered in Agile sprints by balancing features, bug fixes, and code reviews, ensuring timely releases and performance improvements.",
+      "Conducted structured model behavior evaluations across real HR scenarios to identify hallucination patterns, ambiguity risks, and edge-case failures prior to production rollout.",
+      "Integrated an LLM-powered conversational agent into HR and Payroll systems, enabling natural language employee self-service within production workflows.",
+      "Designed structured prompt templates and implemented deterministic JSON schema validation using Pydantic to ensure reliable, business-rule–compliant LLM outputs for downstream payroll API integration.",
+      "Built an AI-to-UI orchestration layer dynamically mapping structured LLM responses to reusable React components, bridging generative AI with enterprise-grade frontend systems.",
+      "Implemented LLM observability and experiment tracking using MLflow to monitor prompts, structured outputs, latency, and validation failures for continuous quality improvement.",
+      "Resolved rendering bottlenecks in the Employee Directory data grid using row virtualization and memoization, reducing memory usage by 60% and improving render time by 20%.",
+      "Reduced UI Library bundle size by ~25% through dependency optimization and tree-shakeable ES module exports, validating improvements via bundle analysis tooling.",
+      "Implemented cross-repository GitLab CI/CD workflows to automate builds, versioning, and containerized deployments without manual intervention.",
+      "Collaborated with clients, product, and design teams to deliver customizable advanced filtering capabilities across HR modules."
     ],
-    technologies: ["React", "Next.js", "TypeScript", "Webpack", "Kubernetes", "GitLab", "Jest"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "LLMs",
+      "Prompt Engineering",
+      "Pydantic Schema",
+      "MLflow",
+      "GitLab CI/CD",
+      "Docker",
+      "Performance Optimization"
+    ]
   },
   {
     company: "University of Texas at Arlington",
@@ -36,10 +47,23 @@ export const experience = [
     location: "USA",
     dates: "Aug 2023 - May 2024",
     points: [
-      "Automated ETL workflows with Lambda, DynamoDB, Athena — improving reliability and cutting manual work.",
-      "Built QuickSight dashboards with filters & role-based access — enabling faster academic decisions.",
+      "Evaluated multiple pre-trained transformer and foundation models from Hugging Face to determine the best trade-off between response quality, latency, and compute cost for applied university use cases.", 
+      "Built reproducible Python-based evaluation pipelines to benchmark inference performance using metrics such as accuracy, latency, throughput, and output consistency under varying prompt and input conditions.",
+      "Analyzed prompt sensitivity and output variability through batch inference experiments to improve response stability in real-world deployment scenarios.",
+      "Profiled runtime performance (CPU/GPU utilization and memory footprint) to identify optimal model configurations suitable for constrained or cost-sensitive environments.", 
+      "Applied lightweight prompt optimization strategies to improve reliability and reduce hallucination risk without modifying model weights.",  
+      "Documented model size vs performance vs latency trade-offs and provided actionable recommendations to guide model selection decisions for downstream application integration.", 
+      "Collaborated closely with faculty stakeholders to translate experimental findings into practical AI recommendations aligned with real-world operational requirements."
     ],
-    technologies: ["AWS Lambda", "DynamoDB", "Athena", "QuickSight", "Python"],
+    technologies: [
+      "Python",
+      "Hugging Face Transformers",
+      "PyTorch",
+      "LLM Inference",
+      "Prompt Engineering",
+      "Model Benchmarking",
+      "Performance Profiling"
+    ]
   },
   {
     company: "TravTech Inc",
@@ -47,31 +71,66 @@ export const experience = [
     location: "Bangalore, India",
     dates: "Aug 2018 - Jul 2022",
     points: [
-      "Launched booking & payment platforms with microservices + GraphQL/REST APIs, accelerating feature delivery and scalability.",
-      "Boosted throughput 40%+ using Redis caching, connection pooling, and multithreading, significantly reducing DB load.",
-      "Optimized queries & indexing, improving response times on high-traffic booking APIs.",
-      "Hardened APIs with OAuth2, JWT & Spring Security RBAC, ensuring secure and compliant transactions.",
-      "Reduced MTTR with observability stack (Prometheus, Grafana, ELK), enabling faster root-cause analysis.",
-      "Migrated monolith to microservices, lowering deployment risk and enabling independent scaling of services.",
-      "Designed resilient APIs with circuit breakers & retries to ensure reliable service under heavy load.",
-      "Built asynchronous workflows with Kafka/SQS, scaling concurrent request handling and improving throughput 30%.",
-      "Introduced database sharding & replication, improving scalability and ensuring high availability during peak loads.",
-      "Led design/code reviews & mentored peers, raising code quality and knowledge sharing across the team.",
+      "Implemented microservices-based ETL workflows to process heterogeneous cruise pricing and itinerary feeds from multiple vendors, performing schema validation and normalization prior to database persistence, significantly improving booking data integrity and pricing accuracy.",    
+      "Built resilient ingestion pipelines with structured error handling and retry mechanisms to prevent malformed vendor feeds from impacting booking availability and downstream systems.",      
+      "Implemented event-driven booking workflows using Apache Kafka to publish booking lifecycle events (create/update/cancel) for email notifications, loyalty point updates, and analytics processing, decoupling microservices and improving reliability during peak booking traffic.",     
+      "Designed idempotent event consumers and optimized partition strategies to ensure consistent state management and high-throughput message processing across distributed services.",     
+      "Migrated booking invoice storage from on-prem file systems to Amazon S3, enabling secure customer access via pre-signed URLs, eliminating storage constraints, and improving document durability and compliance.",    
+      "Developed secure, versioned RESTful APIs for booking management and pricing services with input validation, pagination, and role-based authorization, supporting scalable frontend and partner integrations."
     ],
-    technologies: ["Java", "Spring Boot", "GraphQL", "Redis", "Kafka", "AWS", "Prometheus", "Grafana"],
+    technologies: [
+      "Java",
+      "REST APIs",
+      "Apache Kafka",
+      "AWS S3",
+      "MySQL",
+      "Redis",
+      "Microservices"
+    ]
   },
 ];
 
 export const projects = [
   {
-    title: "AWS CDK Image Analysis Pipeline",
+    title: "Travel Advisory Agent",
+    shortTitle: "Travel Advisory Agent",
+    description: [
+      "Built an agentic AI travel assistant on Databricks using LangGraph with dynamic tool routing between Spark SQL (flight data) and RAG-based policy retrieval.",
+      "Implemented structured prompting, schema validation, and MLflow tracking to deliver grounded, production-ready responses with observability and scalability."
+    ],
+    technologies: ["Databricks", "LangGraph", "Spark SQL", "MLflow", "RAG"],
+    image: "chatbot.jpg",
+    githubUrl: "https://github.com/sonali1103/travel-advisory-agent",
+  },
+  {
+    title: "LangGraph Concepts & Agentic AI Workflows",
+    shortTitle: "LangGraph Concepts",
+    description: [
+      "Built modular agentic AI workflows using LangGraph to orchestrate multi-step reasoning, tool-calling, and structured LLM interactions with deterministic output validation.",
+      "Implemented RAG pipelines with vector search integration, prompt templating, and schema enforcement to improve grounding, reliability, and response consistency in real-world AI applications.",
+      "Designed graph-based execution flows supporting dynamic routing, state management, and observability for scalable, production-oriented LLM systems."
+    ],
+    technologies: [
+      "LangGraph",
+      "LLMs",
+      "Agentic AI",
+      "RAG",
+      "Prompt Engineering",
+      "Pydantic",
+      "Vector Databases (FAISS/OpenSearch/Pinecone)"
+    ],
+    image: "langgraph.png",
+    githubUrl: "https://github.com/sonali1103/LangGraph-concepts",
+  },
+  {
+    title: "Image Analysis Pipeline",
     shortTitle: "AWS Image Pipeline",
     description: [
-      "Built a serverless image analysis pipeline using AWS CDK, with S3-triggered Lambdas analyzing images via Amazon Rekognition.",
-      "Stored extracted metadata in DynamoDB, enabling scalable, event-driven processing with IaC best practices.",
+      "A serverless image analysis application built using AWS CDK. Users upload images to an S3 bucket, which triggers a Lambda function that analyzes the image using Amazon Rekognition and stores the results in DynamoDB.",
     ],
-    technologies: ["Java", "AWS CDK", "Lambda", "S3", "DynamoDB", "Rekognition"],
+    technologies: ["Python", "AWS CDK", "Lambda", "S3", "DynamoDB", "Rekognition"],
     image: "aws.png",
+    githubUrl: "https://github.com/sonali1103/aws-cdk-image-analysis",
   },
   {
     title: "Chatbot using OpenAI API",
@@ -82,60 +141,48 @@ export const projects = [
     ],
     technologies: ["Node.js", "OpenAI API", "JavaScript"],
     image: "chatbot.jpg",
+    githubUrl: "https://github.com/sonali1103/chatbot-openai",
+  },
+  {
+    title: "Secure Media Encoding Platform",
+    shortTitle: "Media Encoder",
+    description: [
+      "Developed a Flask web application to securely embed and extract hidden messages in audio, video, and text files using steganographic encoding techniques.",
+      "Designed the upload + processing pipeline with configurable embedding parameters and a clean UI for end-to-end message concealment and retrieval."
+    ],
+    technologies: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+    image: "steganography.png",
+    githubUrl: "https://github.com/sonali1103/Steganography"
   },
 ];
-
 export const skills = {
-  "Languages & Frameworks": [
+  "Generative AI": [
+    "LLMs",
+    "Agentic AI",
+    "LangGraph",
+    "Retrieval-Augmented Generation (RAG)",
+    "Prompt Engineering",
+    "HuggingFace",
+    "Vector Databases (FAISS, OpenSearch, Pinecone)"
+  ],
+
+  "Languages, Frameworks & APIs": [
     "Python",
-    "Java",
-    "Spring Boot",
     "TypeScript",
-    "JavaScript",
+    "Java",
     "React",
     "Next.js",
-    "Node.js",
-    "HTML/CSS",
-  ],
-  "Databases": [
-    "MySQL",
-    "MongoDB",
-    "Redis",
-    "PostgreSQL",
-    "Cassandra",
-    "DynamoDB",
-  ],
-  "Cloud & DevOps": [
-    "AWS (EC2, S3, Lambda, IAM, Athena, QuickSight)",
-    "Docker",
-    "Kubernetes (CKAD Certified)",
-    "Terraform",
-    "AWS CDK",
-  ],
-  "CI/CD & Testing": [
-    "JUnit",
-    "Jest",
-    "React Testing Library",
-    "Git",
-    "GitLab CI/CD",
-    "Maven",
-    "Jenkins",
-    "Webpack",
-  ],
-  "Architecture & APIs": [
-    "Microservices",
     "RESTful APIs",
-    "GraphQL",
-    "Event-Driven Architecture",
-    "Apache Kafka",
-    "Micro-Frontend",
+    "Microservices"
   ],
-  "AI & Data": [
-    "Generative AI (Databricks Certified)",
-    "OpenAI API",
-    "Amazon Rekognition",
-    "Databricks",
-    "ETL Pipelines",
+  "Data, Cloud & DevOps": [
+    "Databricks (Spark SQL, Model Serving)",
+    "AWS (EC2, S3, Lambda, IAM, Bedrock, Rekognition)",
+    "Docker",
+    "Kubernetes",
+    "GitLab CI/CD",
+    "Apache Kafka",
+    "MLflow"
   ],
 };
 
@@ -174,19 +221,19 @@ export const education = [
 
 export const stats = [
   { label: "Years Experience", value: 6, suffix: "+" },
-  { label: "Projects Delivered", value: 2, suffix: "+" },
+  { label: "Projects Delivered", value: 10, suffix: "+" },
   { label: "Technologies Mastered", value: 10, suffix: "+" },
 ];
 
 export const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
+  { label: "About", href: "#home" },
+  // { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Certifications", href: "#certifications" },
+  { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
 
-export const typewriterWords = ["React", "Spring Boot", "AWS", "Kubernetes"];
+export const typewriterWords = ["Microservices Architecture", "Agentic Workflows", "AWS Cloud", "CI/CD Automation"];

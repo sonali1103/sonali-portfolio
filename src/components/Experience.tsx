@@ -54,7 +54,7 @@ const ExperienceCard = ({
         {/* Responsibilities */}
         <div className="mb-6">
           <ul className="space-y-3">
-            {exp.points.slice(0, 4).map((point, i) => (
+            {exp.points.map((point, i) => (
               <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/90">
                 <span className="text-gold mt-1 flex-shrink-0">▸</span>
                 <span>{point}</span>

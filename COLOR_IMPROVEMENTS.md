@@ -44,7 +44,7 @@ All text visibility issues have been resolved by using bright, high-contrast col
 
 ### 3. All Section Headings
 Updated in all components with white color and strong shadows:
-- **About** (`src/components/About.tsx`)
+<!-- - **About** (`src/components/About.tsx`) -->
 - **Experience** (`src/components/Experience.tsx`)  
 - **Projects** (`src/components/Projects.tsx`)
 - **Skills** (`src/components/Skills.tsx`)

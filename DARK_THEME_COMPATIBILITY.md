@@ -18,11 +18,11 @@ Replaced all fixed charcoal colors with **theme-aware Tailwind classes**:
 
 ## Updated Components
 
-### 1. About Component (`src/components/About.tsx`)
+<!-- ### 1. About Component (`src/components/About.tsx`)
 **Changed:**
 - Professional summary paragraphs: `text-foreground`
 - Skill labels: `text-foreground`
-- "Core Competencies" heading: `text-foreground`
+- "Core Competencies" heading: `text-foreground` -->
 
 ### 2. Experience Component (`src/components/Experience.tsx`)
 **Changed:**

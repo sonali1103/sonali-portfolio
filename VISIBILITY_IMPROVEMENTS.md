@@ -23,7 +23,7 @@ All requested improvements have been successfully implemented to fix visibility 
 **Files Modified**:
 - `src/components/Projects.tsx` - Project titles and descriptions
 - `src/components/Experience.tsx` - Job roles, companies, and descriptions
-- `src/components/About.tsx` - Professional summary and skill labels
+<!-- - `src/components/About.tsx` - Professional summary and skill labels -->
 - `src/components/Skills.tsx` - Skill chip text
 - `src/components/Certifications.tsx` - Certification names and organizations
 - `src/components/Education.tsx` - Degree names and locations
