@@ -78,8 +78,20 @@ export const experience = [
     ],
     technologies: [
       "Python",
-      "Hugging Face Transformers",
-      "PyTorch",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Machine Learning",
+      "Natural Language Processing (NLP)",
+      "Named Entity Recognition (NER)",
+      "OCR",
+      "Text Classification",
+      "Information Extraction",
+      "Deep Learning",
+      "REST APIs",
+      "Machine Learning Pipelines",
+      "Model Evaluation",
+      "Human-in-the-Loop Learning"
     ]
   },
   {
