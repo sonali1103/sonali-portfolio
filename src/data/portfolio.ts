@@ -47,12 +47,12 @@ export const experience = [
     location: "USA",
     dates: "Aug 2023 - May 2024",
     points: [
-      "Evaluated multiple pre-trained transformer and foundation models from Hugging Face to determine the best trade-off between response quality, latency, and compute cost for applied university use cases.", 
+      "Evaluated multiple pre-trained transformer and foundation models from Hugging Face to determine the best trade-off between response quality, latency, and compute cost for applied university use cases.",
       "Built reproducible Python-based evaluation pipelines to benchmark inference performance using metrics such as accuracy, latency, throughput, and output consistency under varying prompt and input conditions.",
       "Analyzed prompt sensitivity and output variability through batch inference experiments to improve response stability in real-world deployment scenarios.",
-      "Profiled runtime performance (CPU/GPU utilization and memory footprint) to identify optimal model configurations suitable for constrained or cost-sensitive environments.", 
-      "Applied lightweight prompt optimization strategies to improve reliability and reduce hallucination risk without modifying model weights.",  
-      "Documented model size vs performance vs latency trade-offs and provided actionable recommendations to guide model selection decisions for downstream application integration.", 
+      "Profiled runtime performance (CPU/GPU utilization and memory footprint) to identify optimal model configurations suitable for constrained or cost-sensitive environments.",
+      "Applied lightweight prompt optimization strategies to improve reliability and reduce hallucination risk without modifying model weights.",
+      "Documented model size vs performance vs latency trade-offs and provided actionable recommendations to guide model selection decisions for downstream application integration.",
       "Collaborated closely with faculty stakeholders to translate experimental findings into practical AI recommendations aligned with real-world operational requirements."
     ],
     technologies: [
@@ -66,16 +66,33 @@ export const experience = [
     ]
   },
   {
+    company: "BOTAIML",
+    role: "Software Engineer AI/ML",
+    location: "India",
+    dates: "Dec 2020 - Jul 2022",
+    points: [
+      "Built an end-to-end ML pipeline for intelligent document processing, covering OCR preprocessing, document classification, NER, structured data extraction, validation, and downstream workflow integration.",
+      "Developed NLP/ML workflows for document classification and information extraction using text preprocessing, embeddings, supervised learning, and deep learning techniques to extract key entities from semi-structured documents.",
+      "Implemented a continuous-learning pipeline incorporating human-validated corrections into labeled datasets for model retraining, evaluation, and iterative improvement of extraction accuracy.",
+      "Developed Python-based APIs and services to integrate ML inference with business-rule validation, exception handling, and downstream enterprise workflows, enabling automated document-to-data processing."
+    ],
+    technologies: [
+      "Python",
+      "Hugging Face Transformers",
+      "PyTorch",
+    ]
+  },
+  {
     company: "TravTech Inc",
     role: "Software Development Engineer",
     location: "Bangalore, India",
-    dates: "Aug 2018 - Jul 2022",
+    dates: "Aug 2018 - Nov 2020",
     points: [
-      "Implemented microservices-based ETL workflows to process heterogeneous cruise pricing and itinerary feeds from multiple vendors, performing schema validation and normalization prior to database persistence, significantly improving booking data integrity and pricing accuracy.",    
-      "Built resilient ingestion pipelines with structured error handling and retry mechanisms to prevent malformed vendor feeds from impacting booking availability and downstream systems.",      
-      "Implemented event-driven booking workflows using Apache Kafka to publish booking lifecycle events (create/update/cancel) for email notifications, loyalty point updates, and analytics processing, decoupling microservices and improving reliability during peak booking traffic.",     
-      "Designed idempotent event consumers and optimized partition strategies to ensure consistent state management and high-throughput message processing across distributed services.",     
-      "Migrated booking invoice storage from on-prem file systems to Amazon S3, enabling secure customer access via pre-signed URLs, eliminating storage constraints, and improving document durability and compliance.",    
+      "Implemented microservices-based ETL workflows to process heterogeneous cruise pricing and itinerary feeds from multiple vendors, performing schema validation and normalization prior to database persistence, significantly improving booking data integrity and pricing accuracy.",
+      "Built resilient ingestion pipelines with structured error handling and retry mechanisms to prevent malformed vendor feeds from impacting booking availability and downstream systems.",
+      "Implemented event-driven booking workflows using Apache Kafka to publish booking lifecycle events (create/update/cancel) for email notifications, loyalty point updates, and analytics processing, decoupling microservices and improving reliability during peak booking traffic.",
+      "Designed idempotent event consumers and optimized partition strategies to ensure consistent state management and high-throughput message processing across distributed services.",
+      "Migrated booking invoice storage from on-prem file systems to Amazon S3, enabling secure customer access via pre-signed URLs, eliminating storage constraints, and improving document durability and compliance.",
       "Developed secure, versioned RESTful APIs for booking management and pricing services with input validation, pagination, and role-based authorization, supporting scalable frontend and partner integrations."
     ],
     technologies: [
