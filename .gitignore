@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+
+# Vercel
+.vercel
