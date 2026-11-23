@@ -27,11 +27,11 @@ const snapshotStats = [
 const sectionLabel = "text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground";
 
 const focusRing =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
-const secondaryButton = `inline-flex items-center justify-center rounded-xl border border-card-border bg-background/60 px-6 py-3.5 font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
+const secondaryButton = `inline-flex items-center justify-center rounded-xl border-2 border-gold px-6 py-3.5 font-semibold text-gold transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold/10 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
 
-const profileLink = `flex w-full items-center justify-between rounded-xl border border-card-border bg-background/60 px-5 py-3 font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
+const profileLink = `flex w-full items-center justify-between rounded-xl border border-border bg-muted/40 px-5 py-3 font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-gold hover:text-gold motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
 
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -120,7 +120,7 @@ const Hero = () => {
         {/* Left card — intro */}
         <motion.article {...cardMotion(0)} className="card-glass min-w-0 p-6 sm:p-8 md:p-10">
           {/* Status pill */}
-          <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-card-border px-4 py-1.5 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-gold/30 px-4 py-1.5 text-sm font-medium uppercase tracking-[0.2em] text-gold">
             <Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             <span>{personalInfo.availability}</span>
           </p>
@@ -132,7 +132,7 @@ const Hero = () => {
 
           {/* Title */}
           <p className="mt-4 font-serif text-xl font-normal md:text-2xl">
-            <span className="text-gradient-title">{personalInfo.title}</span>
+            <span className="text-gold">{personalInfo.title}</span>
           </p>
 
           {/* Summary */}
@@ -143,9 +143,9 @@ const Hero = () => {
           {/* Typewriter */}
           <p className="mt-5 min-h-[1.75rem] text-lg text-muted-foreground md:text-xl">
             Building Enterprise Solutions with{" "}
-            <span className="font-semibold text-gradient-brand">{typedWord}</span>
+            <span className="font-semibold text-gradient-gold">{typedWord}</span>
             {!reduceMotion && (
-              <span className="animate-blink text-accent-gold" aria-hidden="true">
+              <span className="animate-blink text-gold" aria-hidden="true">
                 |
               </span>
             )}
@@ -156,7 +156,7 @@ const Hero = () => {
             {roleChips.map((role) => (
               <li
                 key={role}
-                className="rounded-full border border-foreground/15 px-4 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-foreground/35"
+                className="rounded-full border border-border bg-muted px-4 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-gold"
               >
                 {role}
               </li>
@@ -168,7 +168,7 @@ const Hero = () => {
             <button
               type="button"
               onClick={() => scrollTo("projects")}
-              className={`inline-flex items-center justify-center rounded-xl bg-gradient-brand px-7 py-3.5 font-semibold text-on-brand transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`}
+              className={`inline-flex items-center justify-center rounded-xl bg-gold px-7 py-3.5 font-semibold text-charcoal transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`}
             >
               View Projects
             </button>
@@ -201,7 +201,7 @@ const Hero = () => {
               <Mail className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
               <a
                 href={`mailto:${personalInfo.email}`}
-                className={`break-all rounded-sm transition-colors hover:text-accent-gold ${focusRing}`}
+                className={`break-all rounded-sm transition-colors hover:text-gold ${focusRing}`}
               >
                 {personalInfo.email}
               </a>
@@ -210,7 +210,7 @@ const Hero = () => {
               <Phone className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
               <a
                 href={`tel:${phoneHref}`}
-                className={`rounded-sm transition-colors hover:text-accent-gold ${focusRing}`}
+                className={`rounded-sm transition-colors hover:text-gold ${focusRing}`}
               >
                 {personalInfo.phone}
               </a>
@@ -229,16 +229,16 @@ const Hero = () => {
             </a>
           </div>
 
-          <hr className="my-4 border-card-border" />
+          <hr className="my-4 border-border" />
 
           {/* Stats */}
           <dl className="grid grid-cols-2 gap-3">
             {snapshotStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col gap-1 rounded-2xl border border-card-border bg-background/40 px-4 py-3">
+              <div key={stat.label} className="flex flex-col gap-1 rounded-2xl border border-border bg-muted/40 px-4 py-3">
                 <dt className="text-sm text-muted-foreground">
                   {stat.label}
                 </dt>
-                <dd className="text-3xl font-bold text-foreground md:text-4xl">
+                <dd className="text-3xl font-bold text-gradient-gold md:text-4xl">
                   <CountUp value={stat.value} />
                   {stat.suffix}
                 </dd>
@@ -246,7 +246,7 @@ const Hero = () => {
             ))}
           </dl>
 
-          <hr className="my-4 border-card-border" />
+          <hr className="my-4 border-border" />
 
           {/* Core stack */}
           <p className={sectionLabel}>Core Stack</p>
@@ -254,7 +254,7 @@ const Hero = () => {
             {coreStack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full border border-accent-gold/40 bg-accent-gold/10 px-3 py-1 text-xs font-medium text-accent-gold transition-colors hover:border-accent-gold/70"
+                className="rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-medium text-gold transition-colors hover:border-gold"
               >
                 {tech}
               </li>

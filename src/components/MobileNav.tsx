@@ -55,21 +55,21 @@ const MobileNav = ({ isOpen, onClose, activeSection, onNavigate }: MobileNavProp
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-0 bottom-0 z-50 w-72 max-w-[85vw] border-r border-card-border bg-background shadow-2xl"
+            className="fixed left-0 top-0 bottom-0 z-50 w-72 max-w-[85vw] border-r border-border bg-background shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-card-border p-6">
-                <span className="font-display text-xl font-extrabold uppercase tracking-[0.2em] text-gradient-brand">
+              <div className="flex items-center justify-between border-b border-border p-6">
+                <span className="font-serif text-2xl font-bold uppercase tracking-[0.2em] text-gradient-gold">
                   Sonali
                 </span>
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold"
+                  className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
                   aria-label="Close menu"
                 >
                   <X className="h-6 w-6" aria-hidden="true" />
@@ -89,9 +89,9 @@ const MobileNav = ({ isOpen, onClose, activeSection, onNavigate }: MobileNavProp
                       transition={{ delay: index * 0.05 }}
                       onClick={() => onNavigate(item.href)}
                       aria-current={isActive ? "true" : undefined}
-                      className={`w-full rounded-lg px-5 py-3 text-left font-display text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold ${
+                      className={`w-full rounded-lg px-5 py-3 text-left text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                         isActive
-                          ? "bg-accent-gold/15 font-semibold text-accent-gold"
+                          ? "bg-gold/10 text-gold"
                           : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
                       }`}
                     >
@@ -102,7 +102,7 @@ const MobileNav = ({ isOpen, onClose, activeSection, onNavigate }: MobileNavProp
               </div>
 
               {/* Footer */}
-              <div className="border-t border-card-border p-6">
+              <div className="border-t border-border p-6">
                 <p className="text-sm text-muted-foreground text-center">
                   © {new Date().getFullYear()} Sonali Vedaraju
                 </p>

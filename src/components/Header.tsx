@@ -49,9 +49,9 @@ const Header = () => {
               e.preventDefault();
               scrollToSection("#home");
             }}
-            className="rounded-md font-display text-xl font-extrabold uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold md:text-2xl"
+            className="rounded-md font-serif text-xl font-bold uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold md:text-2xl"
           >
-            <span className="text-gradient-brand">Sonali</span>
+            <span className="text-gradient-gold">Sonali</span>
           </a>
 
           <div className="flex items-center gap-1">
@@ -65,9 +65,9 @@ const Header = () => {
                     type="button"
                     onClick={() => scrollToSection(item.href)}
                     aria-current={isActive ? "true" : undefined}
-                    className={`rounded-lg px-4 py-2 font-display text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold xl:px-5 ${
+                    className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold xl:px-5 ${
                       isActive
-                        ? "bg-accent-gold/15 font-semibold text-accent-gold"
+                        ? "bg-gold/10 text-gold"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -83,7 +83,7 @@ const Header = () => {
             <button
               type="button"
               onClick={() => setIsMobileNavOpen(true)}
-              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold lg:hidden"
+              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold lg:hidden"
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" aria-hidden="true" />

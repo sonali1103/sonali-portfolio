@@ -16,7 +16,6 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
-        display: ['Sora', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -43,15 +42,6 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          gold: "hsl(var(--accent-gold) / <alpha-value>)",
-          teal: "hsl(var(--accent-teal) / <alpha-value>)",
-          purple: "hsl(var(--accent-purple) / <alpha-value>)",
-          cyan: "hsl(var(--accent-cyan) / <alpha-value>)",
-        },
-        "on-brand": "hsl(var(--on-brand) / <alpha-value>)",
-        glow: {
-          amber: "hsl(var(--glow-amber) / <alpha-value>)",
-          teal: "hsl(var(--glow-teal) / <alpha-value>)",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -60,8 +50,6 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-          glass: "hsl(var(--card-glass))",
-          border: "hsl(var(--card-border))",
         },
         gold: {
           DEFAULT: "hsl(var(--gold))",
