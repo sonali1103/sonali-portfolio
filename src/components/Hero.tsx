@@ -1,8 +1,17 @@
-import { motion } from "framer-motion";
-import { ArrowDown, Download } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import { personalInfo, typewriterWords, professionalSummary } from "@/data/portfolio";
-import profileImage from "/sonali.jpeg";
+
+const roleChips = personalInfo.title.split("|").map((role) => role.trim()).filter(Boolean);
+
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
+const secondaryButton = `inline-flex items-center justify-center rounded-xl border border-card-border bg-background/60 px-6 py-3.5 font-display font-bold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
+
+const scrollTo = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
 
 const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -17,7 +26,7 @@ const Hero = () => {
           if (displayText.length < word.length) {
             setDisplayText(word.slice(0, displayText.length + 1));
           } else {
-            setTimeout(() => setIsDeleting(true), 1500);
+            setIsDeleting(true);
           }
         } else {
           if (displayText.length > 0) {
@@ -28,161 +37,80 @@ const Hero = () => {
           }
         }
       },
-      isDeleting ? 50 : 100
+      // Pause on the full word before deleting
+      !isDeleting && displayText.length === word.length ? 1500 : isDeleting ? 50 : 100
     );
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentWordIndex]);
 
-  const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      <div className="container mx-auto px-4 py-10 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center lg:text-left"
-          >
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-gold font-medium mb-4"
-            >
-              Welcome to my portfolio
-            </motion.p>
+    <section id="home" className="relative flex min-h-screen items-center pb-16 pt-24 md:pt-28">
+      <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 sm:px-6 md:gap-10 lg:grid-cols-[1.45fr_1fr] lg:px-8">
+        {/* Left card — intro */}
+        <article className="card-glass min-w-0 p-6 sm:p-8 md:p-10 lg:p-14">
+          {/* Status pill */}
+          <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-card-border px-4 py-1.5 font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            <Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            <span>{personalInfo.availability}</span>
+          </p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4"
-              style={{ color: '#FFFFFF', textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.6)' }}
-            >
-              {personalInfo.name}
-            </motion.h1>
+          {/* Name */}
+          <h1 className="text-shadow-none mt-6 font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
+            {personalInfo.name}
+          </h1>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="text-xl md:text-2xl mb-6"
-              style={{ color: '#D4AF37', textShadow: '0 3px 15px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}
-            >
-              {personalInfo.title}
-            </motion.h2>
+          {/* Title */}
+          <p className="mt-6 font-display text-2xl font-semibold md:text-3xl">
+            <span className="text-gradient-title">{personalInfo.title}</span>
+          </p>
 
-            {/* Professional Summary */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="mb-6 space-y-2"
-            >
-              {professionalSummary.slice(0, 3).map((line, index) => (
-                <p
-                  key={index}
-                  className="text-sm md:text-base leading-relaxed"
-                  style={{ color: '#E8E8E8', textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 1px 5px rgba(0,0,0,0.6)' }}
-                >
-                  {line}
-                </p>
-              ))}
-            </motion.div>
+          {/* Summary */}
+          <p className="mt-6 max-w-[70ch] text-lg leading-relaxed text-muted-foreground md:text-xl">
+            {professionalSummary[0]}
+          </p>
 
-            {/* Typewriter */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              className="text-lg md:text-xl mb-8 h-8"
-            >
-              <span style={{ color: '#E8E8E8', textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 1px 5px rgba(0,0,0,0.6)' }}>
-                Building Enterprise Solutions with{" "}
-              </span>
-              <span className="text-gradient-gold font-semibold">
-                {displayText}
-                <span className="animate-blink">|</span>
-              </span>
-            </motion.div>
+          {/* Typewriter */}
+          <p className="mt-5 min-h-[1.75rem] text-lg text-muted-foreground md:text-xl">
+            Building Enterprise Solutions with{" "}
+            <span className="font-semibold text-gradient-brand">{displayText}</span>
+            <span className="animate-blink text-accent-gold motion-reduce:animate-none" aria-hidden="true">
+              |
+            </span>
+          </p>
 
-            {/* Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <button
-                onClick={scrollToProjects}
-                className="btn-elastic ripple px-8 py-4 bg-gold text-charcoal font-semibold rounded-lg flex items-center justify-center gap-2"
+          {/* Role chips */}
+          <ul className="mt-8 flex flex-wrap gap-3" aria-label="Roles">
+            {roleChips.map((role) => (
+              <li
+                key={role}
+                className="rounded-full border border-foreground/15 px-4 py-1.5 font-display text-sm font-medium text-foreground transition-colors hover:border-foreground/35"
               >
-                View Projects
-                <ArrowDown className="w-5 h-5" />
-              </button>
-              <a
-                href="/resume-AWL-6281-Sonali Vedaraju.pdf"
-                download
-                className="btn-elastic ripple px-8 py-4 border-2 border-gold text-gold font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-gold/10"
-              >
-                Download Resume
-                <Download className="w-5 h-5" />
-              </a>
-            </motion.div>
-          </motion.div>
+                {role}
+              </li>
+            ))}
+          </ul>
 
-          {/* Right - Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.3 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              damping: 15,
-              stiffness: 100,
-              delay: 0.5,
-            }}
-            className="flex justify-center lg:justify-end"
-          >
-            <motion.div
-              animate={{ rotate: [-2, 2, -2] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative"
-              whileHover={{ scale: 1.05, rotateY: 10, rotateX: 5 }}
+          {/* Actions */}
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+            <button
+              type="button"
+              onClick={() => scrollTo("projects")}
+              className={`inline-flex items-center justify-center rounded-xl bg-gradient-brand px-7 py-3.5 font-display font-bold text-on-brand transition-all duration-200 hover:-translate-y-0.5 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`}
             >
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-gold/30 shadow-gold">
-                <img
-                  src={profileImage}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Decorative ring */}
-              <div className="absolute inset-0 rounded-full border-2 border-gold/20 animate-pulse-soft" />
-            </motion.div>
-          </motion.div>
-        </div>
+              View Projects
+            </button>
+            <button type="button" onClick={() => scrollTo("experience")} className={secondaryButton}>
+              View Experience
+            </button>
+            <a href="/resume-AWL-6281-Sonali%20Vedaraju.pdf" download className={secondaryButton}>
+              Download Resume
+            </a>
+          </div>
+        </article>
 
-        {/* Scroll indicator */}
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-silver/50 rounded-full flex justify-center pt-2"
-          >
-            <motion.div className="w-1.5 h-3 bg-gold rounded-full" />
-          </motion.div>
-        </motion.div> */}
+        {/* Right card — recruiter snapshot (step 5) */}
+        <aside aria-label="Recruiter snapshot" className="card-glass min-w-0 p-6 sm:p-8 lg:p-10" />
       </div>
     </section>
   );
