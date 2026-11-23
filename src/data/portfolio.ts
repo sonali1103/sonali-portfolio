@@ -281,8 +281,6 @@ export const coreStack = [
   "AWS",
   "Docker",
   "Kubernetes",
-  "Kafka",
-  "GitLab CI/CD",
 ];
 
 export const typewriterWords =["Microservices Architecture", "Agentic Workflows", "AWS Cloud", "CI/CD Automation"];
