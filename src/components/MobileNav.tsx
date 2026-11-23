@@ -55,45 +55,54 @@ const MobileNav = ({ isOpen, onClose, activeSection, onNavigate }: MobileNavProp
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed left-0 top-0 bottom-0 z-50 w-72 bg-card shadow-2xl"
+            className="fixed left-0 top-0 bottom-0 z-50 w-72 max-w-[85vw] border-r border-card-border bg-background shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Mobile navigation"
           >
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-border">
-                <span className="font-serif text-2xl font-bold text-gradient-gold">SV</span>
+              <div className="flex items-center justify-between border-b border-card-border p-6">
+                <span className="font-display text-xl font-extrabold uppercase tracking-[0.2em] text-gradient-brand">
+                  Sonali
+                </span>
                 <button
+                  type="button"
                   onClick={onClose}
-                  className="p-2 hover:bg-muted rounded-lg transition-colors"
+                  className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold"
                   aria-label="Close menu"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
 
               {/* Navigation Links */}
-              <div className="flex-1 py-6">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    onClick={() => onNavigate(item.href)}
-                    className={`w-full text-left px-6 py-4 text-lg font-medium transition-colors ${activeSection === item.href.replace("#", "")
-                      ? "text-gold bg-gold/10 border-l-4 border-gold"
-                      : "text-foreground hover:bg-muted hover:text-gold"
+              <div className="flex flex-1 flex-col gap-1 p-4">
+                {navItems.map((item, index) => {
+                  const isActive = activeSection === item.href.replace("#", "");
+                  return (
+                    <motion.button
+                      key={item.href}
+                      type="button"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      onClick={() => onNavigate(item.href)}
+                      aria-current={isActive ? "true" : undefined}
+                      className={`w-full rounded-lg px-5 py-3 text-left font-display text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold ${
+                        isActive
+                          ? "bg-accent-gold/15 font-semibold text-accent-gold"
+                          : "text-muted-foreground hover:bg-foreground/5 hover:text-foreground"
                       }`}
-                  >
-                    {item.label}
-                  </motion.button>
-                ))}
+                    >
+                      {item.label}
+                    </motion.button>
+                  );
+                })}
               </div>
 
               {/* Footer */}
-              <div className="p-6 border-t border-border">
+              <div className="border-t border-card-border p-6">
                 <p className="text-sm text-muted-foreground text-center">
                   © {new Date().getFullYear()} Sonali Vedaraju
                 </p>

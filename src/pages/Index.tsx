@@ -9,7 +9,6 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollEnhancements from "@/components/ScrollEnhancements";
-import ThemeToggle from "@/components/ThemeToggle";
 import { Toaster } from "@/components/ui/toaster";
 
 const Index = () => {
@@ -35,7 +34,6 @@ const Index = () => {
         </main>
         <Footer />
         <ScrollEnhancements />
-        <ThemeToggle />
         <Toaster />
       </div>
     </>

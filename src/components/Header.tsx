@@ -1,17 +1,12 @@
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { navItems } from "@/data/portfolio";
 import MobileNav from "./MobileNav";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const { scrollY } = useScroll();
-
-  const headerOpacity = useTransform(scrollY, [0, 100], [1, 0.95]);
-  const headerScale = useTransform(scrollY, [0, 100], [1, 0.98]);
-  const headerBlur = useTransform(scrollY, [0, 100], [8, 16]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +25,8 @@ const Header = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -44,54 +40,57 @@ const Header = () => {
 
   return (
     <>
-      <motion.header
-        className="fixed top-0 left-0 right-0 z-40 glass border-b border-border/50"
-        style={{
-          opacity: headerOpacity,
-          scale: headerScale,
-          backdropFilter: useTransform(headerBlur, (v) => `blur(${v}px)`),
-        }}
-      >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="font-serif text-xl md:text-2xl font-bold"
-            >
-              <span className="text-gradient-gold">SV</span>
-            </motion.div>
+      <header className="fixed left-0 right-0 top-0 z-40 bg-background/60 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+          {/* Logo */}
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("#home");
+            }}
+            className="rounded-md font-display text-xl font-extrabold uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold md:text-2xl"
+          >
+            <span className="text-gradient-brand">Sonali</span>
+          </a>
 
+          <div className="flex items-center gap-1">
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`nav-link text-sm font-medium py-1 ${activeSection === item.href.replace("#", "") ? "active text-gold" : "text-foreground"
+            <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.replace("#", "");
+                return (
+                  <button
+                    key={item.href}
+                    type="button"
+                    onClick={() => scrollToSection(item.href)}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`rounded-lg px-4 py-2 font-display text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold xl:px-5 ${
+                      isActive
+                        ? "bg-accent-gold/15 font-semibold text-accent-gold"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
-                >
-                  {item.label}
-                </motion.button>
-              ))}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
             </nav>
+
+            <ThemeToggle />
 
             {/* Mobile Menu Button */}
             <button
+              type="button"
               onClick={() => setIsMobileNavOpen(true)}
-              className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold lg:hidden"
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       <MobileNav
         isOpen={isMobileNavOpen}

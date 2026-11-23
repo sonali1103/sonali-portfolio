@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
@@ -9,7 +9,7 @@ const ThemeToggle = () => {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark);
-    
+
     setIsDark(shouldBeDark);
     document.documentElement.classList.toggle("dark", shouldBeDark);
   }, []);
@@ -21,23 +21,17 @@ const ThemeToggle = () => {
     localStorage.setItem("theme", newIsDark ? "dark" : "light");
   };
 
+  const Icon = isDark ? Sun : Moon;
+
   return (
-    <motion.button
+    <button
+      type="button"
       onClick={toggleTheme}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full glass shadow-luxury flex items-center justify-center hover:shadow-gold transition-shadow"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold"
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      <motion.span
-        initial={false}
-        animate={{ rotate: isDark ? 180 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="text-xl"
-      >
-        {isDark ? "🌙" : "☀️"}
-      </motion.span>
-    </motion.button>
+      <Icon className="h-5 w-5" aria-hidden="true" />
+    </button>
   );
 };
 
