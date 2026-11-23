@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { personalInfo, typewriterWords, professionalSummary } from "@/data/portfolio";
 import profileImage from "/sonali.jpeg";
 
-const heroBg = "/hero-bg.jpg";
-
 const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -42,14 +40,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Parallax Background */}
-      <div
-        className="parallax-bg"
-        style={{
-          backgroundImage: `linear-gradient(to bottom, hsl(var(--charcoal) / 0.7), hsl(var(--charcoal) / 0.9)), url(${heroBg})`,
-        }}
-      />
-
       <div className="container mx-auto px-4 py-10 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
