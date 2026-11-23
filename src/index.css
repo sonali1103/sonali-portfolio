@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -49,6 +49,17 @@
     --glass-bg: 0 0% 100% / 0.7;
     --glass-border: 0 0% 100% / 0.2;
 
+    /* Hero redesign accents (darker in light mode for >= 4.5:1 contrast) */
+    --accent-gold: 36 75% 32%;
+    --accent-teal: 172 55% 28%;
+    --accent-purple: 258 60% 50%;
+    --accent-cyan: 196 85% 33%;
+    --on-brand: 0 0% 100%;
+    --card-glass: 0 0% 100% / 0.75;
+    --card-border: 222 30% 20% / 0.1;
+    --glow-amber: 36 90% 60%;
+    --glow-teal: 175 60% 50%;
+
     --sidebar-background: 220 20% 97%;
     --sidebar-foreground: 220 25% 10%;
     --sidebar-primary: 43 74% 49%;
@@ -60,7 +71,7 @@
   }
 
   .dark {
-    --background: 220 25% 6%;
+    --background: 222 45% 7%;
     --foreground: 220 10% 95%;
 
     --card: 220 25% 10%;
@@ -98,6 +109,16 @@
 
     --glass-bg: 220 25% 10% / 0.8;
     --glass-border: 220 10% 30% / 0.3;
+
+    --accent-gold: 40 70% 55%;
+    --accent-teal: 170 40% 50%;
+    --accent-purple: 255 70% 75%;
+    --accent-cyan: 195 80% 65%;
+    --on-brand: 222 45% 7%;
+    --card-glass: 222 40% 11% / 0.72;
+    --card-border: 0 0% 100% / 0.08;
+    --glow-amber: 32 70% 40%;
+    --glow-teal: 175 50% 35%;
 
     --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 220 10% 95%;
@@ -148,6 +169,29 @@
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
+  }
+
+  /* Brand gradients (hero redesign) */
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, hsl(var(--accent-gold)) 0%, hsl(var(--accent-teal)) 100%);
+  }
+
+  .text-gradient-title {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, hsl(var(--accent-purple)) 0%, hsl(var(--accent-cyan)) 100%);
+  }
+
+  .bg-gradient-brand {
+    background-image: linear-gradient(90deg, hsl(var(--accent-gold)) 0%, hsl(var(--accent-teal)) 100%);
+  }
+
+  /* Translucent hero card */
+  .card-glass {
+    @apply rounded-[2rem] border backdrop-blur-xl;
+    background: hsl(var(--card-glass));
+    border-color: hsl(var(--card-border));
+    box-shadow: 0 24px 60px -20px hsl(var(--charcoal) / 0.35);
   }
 
   /* Silver gradient text */
@@ -359,6 +403,10 @@
       0 4px 6px -1px hsl(var(--charcoal) / 0.1),
       0 2px 4px -2px hsl(var(--charcoal) / 0.1),
       0 0 0 1px hsl(var(--border));
+  }
+
+  .text-shadow-none {
+    text-shadow: none;
   }
 
   /* Hide scrollbar but allow scrolling */

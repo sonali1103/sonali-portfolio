@@ -6,6 +6,7 @@ export const personalInfo = {
   email: "sonalivedaraj@gmail.com",
   linkedin: "https://www.linkedin.com/in/sonalivedaraju/",
   github: "https://github.com/sonali1103",
+  availability: "Open to AI / Software roles",
 };
 
 export const professionalSummary = [
@@ -265,4 +266,23 @@ export const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const typewriterWords = ["Microservices Architecture", "Agentic Workflows", "AWS Cloud", "CI/CD Automation"];
+export const coreStack = [
+  "Python",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "LLMs",
+  "Agentic AI",
+  "LangGraph",
+  "RAG",
+  "Prompt Engineering",
+  "MLflow",
+  "Databricks",
+  "AWS",
+  "Docker",
+  "Kubernetes",
+  "Kafka",
+  "GitLab CI/CD",
+];
+
+export const typewriterWords =["Microservices Architecture", "Agentic Workflows", "AWS Cloud", "CI/CD Automation"];
