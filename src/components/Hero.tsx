@@ -1,15 +1,38 @@
-import { Sparkles } from "lucide-react";
+import { ExternalLink, Github, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
-import { personalInfo, typewriterWords, professionalSummary } from "@/data/portfolio";
+import {
+  certifications,
+  coreStack,
+  personalInfo,
+  professionalSummary,
+  projects,
+  skills,
+  stats,
+  typewriterWords,
+} from "@/data/portfolio";
 
 const roleChips = personalInfo.title.split("|").map((role) => role.trim()).filter(Boolean);
+
+const phoneHref = personalInfo.phone.replace(/[^\d+]/g, "");
+
+// All numbers derived from portfolio data
+const snapshotStats = [
+  { label: stats[0].label, value: stats[0].value, suffix: stats[0].suffix },
+  { label: "Projects", value: projects.length, suffix: "" },
+  { label: "Certifications", value: certifications.length, suffix: "" },
+  { label: "Skills", value: Object.values(skills).reduce((total, list) => total + list.length, 0), suffix: "" },
+];
+
+const sectionLabel = "font-display text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground";
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const secondaryButton = `inline-flex items-center justify-center rounded-xl border border-card-border bg-background/60 px-6 py-3.5 font-display font-bold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
 
-const scrollTo = (id: string) => {
+const profileLink = `flex w-full items-center justify-between rounded-xl border border-card-border bg-background/60 px-5 py-4 font-display font-bold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
+
+const scrollTo =(id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -109,8 +132,82 @@ const Hero = () => {
           </div>
         </article>
 
-        {/* Right card — recruiter snapshot (step 5) */}
-        <aside aria-label="Recruiter snapshot" className="card-glass min-w-0 p-6 sm:p-8 lg:p-10" />
+        {/* Right card — recruiter snapshot */}
+        <aside aria-labelledby="snapshot-label" className="card-glass min-w-0 p-6 sm:p-8 lg:p-10">
+          <p id="snapshot-label" className={sectionLabel}>
+            Recruiter Snapshot
+          </p>
+
+          {/* Contact */}
+          <ul className="mt-6 space-y-4 text-foreground">
+            <li className="flex items-start gap-3">
+              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <span>{personalInfo.location}</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <Mail className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className={`break-all rounded-sm transition-colors hover:text-accent-gold ${focusRing}`}
+              >
+                {personalInfo.email}
+              </a>
+            </li>
+            <li className="flex items-start gap-3">
+              <Phone className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+              <a
+                href={`tel:${phoneHref}`}
+                className={`rounded-sm transition-colors hover:text-accent-gold ${focusRing}`}
+              >
+                {personalInfo.phone}
+              </a>
+            </li>
+          </ul>
+
+          {/* Profile links */}
+          <div className="mt-8 space-y-3">
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className={profileLink}>
+              Open LinkedIn
+              <ExternalLink className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className={profileLink}>
+              Open GitHub
+              <Github className="h-5 w-5" aria-hidden="true" />
+            </a>
+          </div>
+
+          <hr className="my-8 border-card-border" />
+
+          {/* Stats */}
+          <dl className="grid grid-cols-2 gap-3 sm:gap-4">
+            {snapshotStats.map((stat) => (
+              <div key={stat.label} className="flex flex-col gap-2 rounded-2xl border border-card-border bg-background/40 p-4 sm:p-5">
+                <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  {stat.label}
+                </dt>
+                <dd className="font-display text-3xl font-extrabold text-foreground sm:text-4xl">
+                  {stat.value}
+                  {stat.suffix}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <hr className="my-8 border-card-border" />
+
+          {/* Core stack */}
+          <p className={sectionLabel}>Core Stack</p>
+          <ul className="mt-4 flex flex-wrap gap-2" aria-label="Core stack">
+            {coreStack.map((tech) => (
+              <li
+                key={tech}
+                className="rounded-full border border-accent-gold/40 bg-accent-gold/10 px-3.5 py-1 font-display text-sm font-semibold text-accent-gold transition-colors hover:border-accent-gold/70"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
     </section>
   );
