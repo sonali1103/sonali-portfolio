@@ -1,3 +1,4 @@
+import { animate, motion, useReducedMotion, type Variants } from "framer-motion";
 import { ExternalLink, Github, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -32,16 +33,54 @@ const secondaryButton = `inline-flex items-center justify-center rounded-xl bord
 
 const profileLink = `flex w-full items-center justify-between rounded-xl border border-card-border bg-background/60 px-5 py-4 font-display font-bold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/25 hover:brightness-110 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${focusRing}`;
 
-const scrollTo =(id: string) => {
+const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 };
 
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: index * 0.12, ease: "easeOut" },
+  }),
+};
+
+/** Counts up to `value` once on mount; shows the final value immediately with reduced motion. */
+const CountUp = ({ value }: { value: number }) => {
+  const reduceMotion = useReducedMotion();
+  const [display, setDisplay] = useState(reduceMotion ? value : 0);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setDisplay(value);
+      return;
+    }
+    const controls = animate(0, value, {
+      duration: 1.2,
+      delay: 0.3,
+      ease: "easeOut",
+      onUpdate: (latest) => setDisplay(Math.round(latest)),
+    });
+    return () => controls.stop();
+  }, [value, reduceMotion]);
+
+  return (
+    <>
+      <span aria-hidden="true">{display}</span>
+      <span className="sr-only">{value}</span>
+    </>
+  );
+};
+
 const Hero = () => {
+  const reduceMotion = useReducedMotion();
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    if (reduceMotion) return;
     const word = typewriterWords[currentWordIndex];
     const timeout = setTimeout(
       () => {
@@ -65,13 +104,21 @@ const Hero = () => {
     );
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentWordIndex]);
+  }, [displayText, isDeleting, currentWordIndex, reduceMotion]);
+
+  const typedWord = reduceMotion ? typewriterWords[0] : displayText;
+  const cardMotion = (index: number) => ({
+    variants: cardVariants,
+    custom: index,
+    initial: reduceMotion ? false : ("hidden" as const),
+    animate: "visible" as const,
+  });
 
   return (
     <section id="home" className="relative flex min-h-screen items-center pb-16 pt-24 md:pt-28">
       <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 sm:px-6 md:gap-10 lg:grid-cols-[1.45fr_1fr] lg:px-8">
         {/* Left card — intro */}
-        <article className="card-glass min-w-0 p-6 sm:p-8 md:p-10 lg:p-14">
+        <motion.article {...cardMotion(0)} className="card-glass min-w-0 p-6 sm:p-8 md:p-10 lg:p-14">
           {/* Status pill */}
           <p className="inline-flex max-w-full items-center gap-2 rounded-full border border-card-border px-4 py-1.5 font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
@@ -96,10 +143,12 @@ const Hero = () => {
           {/* Typewriter */}
           <p className="mt-5 min-h-[1.75rem] text-lg text-muted-foreground md:text-xl">
             Building Enterprise Solutions with{" "}
-            <span className="font-semibold text-gradient-brand">{displayText}</span>
-            <span className="animate-blink text-accent-gold motion-reduce:animate-none" aria-hidden="true">
-              |
-            </span>
+            <span className="font-semibold text-gradient-brand">{typedWord}</span>
+            {!reduceMotion && (
+              <span className="animate-blink text-accent-gold" aria-hidden="true">
+                |
+              </span>
+            )}
           </p>
 
           {/* Role chips */}
@@ -130,10 +179,14 @@ const Hero = () => {
               Download Resume
             </a>
           </div>
-        </article>
+        </motion.article>
 
         {/* Right card — recruiter snapshot */}
-        <aside aria-labelledby="snapshot-label" className="card-glass min-w-0 p-6 sm:p-8 lg:p-10">
+        <motion.aside
+          {...cardMotion(1)}
+          aria-labelledby="snapshot-label"
+          className="card-glass min-w-0 p-6 sm:p-8 lg:p-10"
+        >
           <p id="snapshot-label" className={sectionLabel}>
             Recruiter Snapshot
           </p>
@@ -186,7 +239,7 @@ const Hero = () => {
                   {stat.label}
                 </dt>
                 <dd className="font-display text-3xl font-extrabold text-foreground sm:text-4xl">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                   {stat.suffix}
                 </dd>
               </div>
@@ -207,7 +260,7 @@ const Hero = () => {
               </li>
             ))}
           </ul>
-        </aside>
+        </motion.aside>
       </div>
     </section>
   );
