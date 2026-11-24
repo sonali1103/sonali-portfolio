@@ -48,4 +48,5 @@ Personal portfolio for Sonali Vedaraju (AI Application Engineer). Deployed on Ve
 - Commit messages: short, imperative (e.g. `hero: two-column card layout with snapshot panel`).
 
 ## Current task context
-UI redesign of the landing/hero section. Spec: `docs/design/hero-redesign-spec.md`.
+UI redesign of the Projects section. Spec: `docs/design/projects-redesign-spec.md`.
+Hero is done. Don't touch Hero.tsx or Header.tsx.
