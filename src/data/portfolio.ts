@@ -191,33 +191,31 @@ export const projects = [
   },
 ];
 export const skills = {
-  "Generative AI": [
-    "LLMs",
-    "Agentic AI",
-    "LangGraph",
-    "Retrieval-Augmented Generation (RAG)",
-    "Prompt Engineering",
-    "HuggingFace",
-    "Vector Databases (FAISS, OpenSearch, Pinecone)"
+  "ML Concepts & Edge AI": [
+    "Supervised Learning", "Unsupervised Learning", "Deep Learning", "Transfer Learning",
+    "Representation Learning", "Model Fine-Tuning", "Classification", "Regression",
+    "Feature Engineering", "Model Evaluation", "Model Validation", "CNNs", "Transformers",
+    "Vision Transformers (ViTs)", "Foundation Models",
   ],
-
-  "Languages, Frameworks & APIs": [
-    "Python",
-    "TypeScript",
-    "Java",
-    "React",
-    "Next.js",
-    "RESTful APIs",
-    "Microservices"
+  "Generative AI & LLMs": [
+    "Large Language Models (LLMs)", "Hugging Face Transformers", "Prompt Engineering",
+    "Structured LLM Outputs", "RAG", "Embeddings", "Semantic Search", "Vector Databases",
+    "FAISS", "Conversational AI", "LLM Evaluation", "Groq API",
   ],
-  "Data, Cloud & DevOps": [
-    "Databricks (Spark SQL, Model Serving)",
-    "AWS (EC2, S3, Lambda, IAM, Bedrock, Rekognition)",
-    "Docker",
-    "Kubernetes",
-    "GitLab CI/CD",
-    "Apache Kafka",
-    "MLflow"
+  "Agentic AI": [
+    "AI Agents", "Agentic Workflows", "n8n", "Workflow Automation", "Function Calling",
+    "Structured Data Extraction", "LLM-powered Applications", "REST API Integration",
+    "JSON-based Workflows",
+  ],
+  "Programming Languages": [
+    "Python", "C++", "C", "SQL", "JavaScript", "TypeScript", "HTML5", "CSS3", "JSON",
+  ],
+  "ML Frameworks": [
+    "PyTorch", "TensorFlow", "Scikit-learn", "Hugging Face Transformers",
+  ],
+  "Data Engineering & Analytics": [
+    "ETL Pipelines", "Data Cleaning", "Data Transformation", "Data Validation", "Data Quality",
+    "Exploratory Data Analysis (EDA)", "Statistical Analysis", "Pandas", "NumPy", "Scikit-learn",
   ],
 };
 
@@ -263,10 +261,10 @@ export const stats = [
 export const navItems = [
   { label: "About", href: "#home" },
   // { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Certifications", href: "#certifications" },
-  { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -288,4 +286,4 @@ export const coreStack = [
   "Kubernetes",
 ];
 
-export const typewriterWords =["Microservices Architecture", "Agentic Workflows", "AWS Cloud", "CI/CD Automation"];
+export const typewriterWords = ["Microservices Architecture", "Agentic Workflows", "AWS Cloud", "CI/CD Automation"];

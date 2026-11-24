@@ -25,10 +25,10 @@ const Index = () => {
         <main>
           <Hero />
           {/* <About /> */}
+          <Experience />
           <Projects />
           <Skills />
           <Certifications />
-          <Experience />
           <Education />
           <Contact />
         </main>
