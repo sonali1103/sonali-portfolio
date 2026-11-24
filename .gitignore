@@ -12,6 +12,10 @@ npm-debug.log*
 .env.*
 !.env.example
 
+# Claude Code local files (keep CLAUDE.md tracked)
+.claude/
+docs/design/
+
 # Editor / OS
 .vscode/*
 !.vscode/extensions.json
