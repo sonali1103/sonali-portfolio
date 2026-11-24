@@ -124,6 +124,7 @@ export const projects = [
   {
     title: "Travel Advisory Agent",
     shortTitle: "Travel Advisory Agent",
+    category: "Agentic AI · Databricks",
     description: [
       "Built an agentic AI travel assistant on Databricks using LangGraph with dynamic tool routing between Spark SQL (flight data) and RAG-based policy retrieval.",
       "Implemented structured prompting, schema validation, and MLflow tracking to deliver grounded, production-ready responses with observability and scalability."
@@ -135,6 +136,7 @@ export const projects = [
   {
     title: "LangGraph Concepts & Agentic AI Workflows",
     shortTitle: "LangGraph Concepts",
+    category: "Generative AI · Agent Orchestration",
     description: [
       "Built modular agentic AI workflows using LangGraph to orchestrate multi-step reasoning, tool-calling, and structured LLM interactions with deterministic output validation.",
       "Implemented RAG pipelines with vector search integration, prompt templating, and schema enforcement to improve grounding, reliability, and response consistency in real-world AI applications.",
@@ -155,6 +157,7 @@ export const projects = [
   {
     title: "Image Analysis Pipeline",
     shortTitle: "AWS Image Pipeline",
+    category: "Cloud · Serverless AWS",
     description: [
       "A serverless image analysis application built using AWS CDK. Users upload images to an S3 bucket, which triggers a Lambda function that analyzes the image using Amazon Rekognition and stores the results in DynamoDB.",
     ],
@@ -165,6 +168,7 @@ export const projects = [
   {
     title: "Chatbot using OpenAI API",
     shortTitle: "AI Chatbot",
+    category: "Generative AI · Conversational AI",
     description: [
       "Built an AI-powered chatbot using Node.js and the OpenAI API to enable real-time conversational responses.",
       "Designed for easy application integration, providing a scalable and reusable intelligent assistant.",
@@ -176,6 +180,7 @@ export const projects = [
   {
     title: "Secure Media Encoding Platform",
     shortTitle: "Media Encoder",
+    category: "Security · Full-Stack Web",
     description: [
       "Developed a Flask web application to securely embed and extract hidden messages in audio, video, and text files using steganographic encoding techniques.",
       "Designed the upload + processing pipeline with configurable embedding parameters and a clean UI for end-to-end message concealment and retrieval."
