@@ -370,6 +370,11 @@
     text-shadow: none;
   }
 
+  /* Section heading shadow (legible over the fixed background image) */
+  .text-shadow-heading {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 10px rgba(0, 0, 0, 0.6);
+  }
+
   /* Hide scrollbar but allow scrolling */
   .scrollbar-hide {
     -ms-overflow-style: none;
